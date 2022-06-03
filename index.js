@@ -1,4 +1,5 @@
 const express = require("express");
+const res = require("express/lib/response");
 const puppeteer = require("puppeteer")
 
 let app = express();
@@ -41,10 +42,6 @@ async function main() {
       if (button) {
           await button.click()
       }
-      // screenshot page
-      // await page.screenshot({
-      //     path: "inputtest.png"
-      // })
   
       await browser.close()
   }
@@ -52,6 +49,7 @@ async function main() {
   loginInstagram()
   })
 
+  res.send("loggedin")
   
 }
 
